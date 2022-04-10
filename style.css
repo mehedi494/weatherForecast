@@ -1,0 +1,25 @@
+.body{
+    position: relative;
+    background: url(/images/01d4ca25043129.5633e58977854.png) no-repeat ;
+    background-repeat: no-repeat; 
+     height: 100%;
+    background-size: cover ; 
+    
+    
+}
+.wheatherTxt{
+    color: rgb(207, 205, 90);
+}
+.inputDiv{
+    position: relative;
+}
+.inputDiv i{
+    position: absolute;
+    left: 15px;
+    font-size: 20px;
+    color: darkcyan;
+    bottom: 10px;
+    /* top: 40px; */
+    z-index: 1;
+    
+}
