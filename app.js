@@ -1,20 +1,38 @@
 document.getElementById("button-addon2").addEventListener("click", function () {
     
-    searchResult()
+    // searchResult()
+    inputSearch(true)    
 })
 
-const searchResult = async ()  => {
+document.getElementById("searchInput").addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        
+        inputSearch(true)  
+    }
+})
 
-    const inputField = document.getElementById("searchInput");
+const inputSearch = data => {
+    if (data ==true) {
+        const inputField = document.getElementById("searchInput").value
+        searchResult(inputField)
+    }
+    else {
+        searchResult("bangladesh")
+    }
+}
+const searchResult = async (inputField)  => {
+
+    // const inputField = document.getElementById("searchInput");
     
     try {
-        if (inputField.value.length != 0) {
-            const api = `ab9065241405dc66af624c4983f42597`;
+        if (inputField.length != 0) {
+            const API_KEY = `ab9065241405dc66af624c4983f42597`;
 
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputField.value}&appid=${api}&units=metric`;
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputField}&appid=${API_KEY}&units=metric`;
             const res = await fetch(url);
             const data = await res.json();
             displayWeatherDataByCard(data)
+            inputField.value= " "
             
         }
         else {
@@ -25,13 +43,10 @@ const searchResult = async ()  => {
         errorShow(error)
     }
 }
-const errorShow = err => {
-    const erroMsg = document.getElementById("error");
-    const span = document.createElement("span")
-    span.innerHTML = `<i class="fa-regular fa-ban">dsaf</i>`
-    erroMsg.appendChild(span)
-    erroMsg.innerText = "Serch Result not found"
-    erroMsg.style.display = "block"
+const errorShow = () => {
+    const erroMsg = document.getElementById("errorDiv");
+    erroMsg.style.display="block"
+    
 
     const div = document.getElementById("containerData");
     div.textContent = ' '
@@ -39,6 +54,7 @@ const errorShow = err => {
 }
 
 const displayWeatherDataByCard = results => {
+    console.log(results)
     const { feels_like,        
         temp,
         temp_max,
@@ -50,12 +66,13 @@ const displayWeatherDataByCard = results => {
     // ---------------- DISPLAY  ELEMENTS  BY CARD-----------------
 
     const div2 = document.createElement("div")
-    const erroMsg = document.getElementById("error");
+    const erroMsg = document.getElementById("errorDiv");
     erroMsg.style.display = "none"
 
     const icon = `"http://openweathermap.org/img/wn/${results.weather[0].icon}@2x.png"`
     
-    div2.innerHTML = `<div class="bg-card text-center w-50 mx-auto">
+    if (results.cod !== "404") {
+        div2.innerHTML = `<div class="bg-card text-center w-50 mx-auto">
             <div class="card-body">
             <p class="text-white"> ${results.weather[0].main}<img class="text-white"src=${icon} alt=""></p>
             <h1 class="text-white card-title"><i class="fa-solid fa-city"></i> ${results.name}, ${results.sys.country}</h1>
@@ -65,7 +82,16 @@ const displayWeatherDataByCard = results => {
             <h5 class="text-white"><i class="fa-brands fa-skyatlas"></i> ${results.weather[0].main}</h5>
              </div>
             </div >`
+    }
+    else {
+        errorShow()
+    }
     div.appendChild(div2)
 
 
 }
+
+const autoDisplayData =() => {
+    inputSearch(false)
+}
+autoDisplayData()

@@ -4,11 +4,13 @@
     background-repeat: no-repeat; 
      height: 100%;
     background-size: cover ; 
+    padding-top: 100px;
+    padding-bottom: 200px;
     
     
 }
 .wheatherTxt{
-    color: rgb(179, 172, 76);
+    color: rgb(35, 29, 87);
 }
 .inputDiv{
     position: relative;
@@ -29,4 +31,9 @@
     /* border: 2px solid black; */
     border-radius: 10px;
     
+}
+.footerContainer{
+   
+    /* margin-top: 500px; */
+    background-image: linear-gradient( #A9F1DF ,#FFBBBB) ;
 }
