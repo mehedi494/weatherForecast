@@ -1,5 +1,5 @@
 document.getElementById("button-addon2").addEventListener("click", function () {
-    // coordinate()
+    
     searchResult()
 })
 
@@ -15,8 +15,7 @@ const searchResult = async ()  => {
             const res = await fetch(url);
             const data = await res.json();
             displayWeatherDataByCard(data)
-            // inpu
-            // console.log(data)
+            
         }
         else {
             console.log("Input valid input")
