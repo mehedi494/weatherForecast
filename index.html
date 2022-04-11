@@ -17,7 +17,7 @@
 <body class="body" >
     <header>
 <div class="text-center mt-5">
-    <h1 class="wheatherTxt">Weather <span class="text-white">Forecast <i class="fa-solid fa-cloud-sun-rain"></i></span></h1>
+    <h1 class="wheatherTxt">Weather <span class="text-success">Forecast <i class="fa-solid fa-cloud-sun-rain"></i></span></h1>
 </div>
 
     </header>
@@ -27,11 +27,12 @@
                 <div class=" container  mb-3   mt-3">
                     
                     <div class="inputDiv  input-group w-50 mx-auto">
-                        <input id="searchInput" type="text" class=" form-control px-5 p-2  fw-bold  " placeholder=" Search by city name . . ."
+                        <input id="searchInput" type="text" class=" form-control  fs-5 px-5 p-2  text-success" placeholder=" Search by city name ..."
                         aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <i class="fa-solid fa-filter"></i>
-                        <button i onclick="searchResult()" class="btn text-white btn-outline-primary" type="button" id="button-addon2">Search</button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                        <button class="btn  btn-outline-secondary" type="button" id="button-addon2">Search</button>
                     </div>
+                    <h4 id="error" class="text-center text-danger mt-5" style="display: none;"><i class="fa-regular fa-ban"></i></h4>
                     
                 </div>
                 <div class="container" id="containerData">

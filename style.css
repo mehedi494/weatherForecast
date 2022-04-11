@@ -1,6 +1,6 @@
 .body{
     position: relative;
-    background: url(/images/01d4ca25043129.5633e58977854.png) no-repeat ;
+    background: url(/images/3907391.jpg) no-repeat ;
     background-repeat: no-repeat; 
      height: 100%;
     background-size: cover ; 
@@ -8,7 +8,7 @@
     
 }
 .wheatherTxt{
-    color: rgb(207, 205, 90);
+    color: rgb(179, 172, 76);
 }
 .inputDiv{
     position: relative;
@@ -21,5 +21,12 @@
     bottom: 10px;
     /* top: 40px; */
     z-index: 1;
+    
+}
+.bg-card{
+    /* background-color: #60cf6d00; */
+    background-image: linear-gradient(315deg, #63d4707e 0%, #233329bd 94%);
+    /* border: 2px solid black; */
+    border-radius: 10px;
     
 }
